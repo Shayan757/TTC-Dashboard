@@ -88,9 +88,9 @@ const page = () => {
           )}
         </div>
       </div>
-      <div style={{ textAlign: 'end' }} className="w-full  mb-2">
+      {/* <div style={{ textAlign: 'end' }} className="w-full  mb-2">
         <Link href={'/login/forget-password'} className="text-sm cursor-pointer text-yellow-600 ">Forgot Password?</Link>
-      </div>
+      </div> */}
       {isLoading ?
         <>
           <button disabled className="bgColor mb-2 w-full text-black font-semibold py-2 px-4 rounded-lg hover:bg-yellow-600 focus:outline-none">
