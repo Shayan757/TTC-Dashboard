@@ -14,11 +14,11 @@ const nextConfig = withBundleAnalyzer({
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'tradecorebucket.s3.eu-west-2.amazonaws.com',
+          hostname: 'thetradecorebucket.s3.eu-west-2.amazonaws.com',
           pathname: '/**', // Allow all paths for this domain
         },
       ],
-      domains: ['tradecorebucket.s3.eu-west-2.amazonaws.com'],
+      domains: ['thetradecorebucket.s3.eu-west-2.amazonaws.com'],
     },
   })
 );
