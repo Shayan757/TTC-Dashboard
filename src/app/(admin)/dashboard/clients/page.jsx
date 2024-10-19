@@ -85,18 +85,21 @@ const UsersPage = () => {
                 <tr key={user.id} className="border-t">
                   <td className="px-6 py-4">{user.id}</td>
                   <td className="px-6 py-4 flex items-center">
-                    {/* <Image
+                    {user.profileUrl ?
+                    <img
+                    src={user.profileUrl}
+                    alt="avatar"
+                    className="w-10 h-10 rounded-full mr-3"
+                  />:
+                  <Image
                       src={user.profileUrl || userImage}
                       width={40}
                       height={40}
                       alt="avatar"
                       className="w-10 h-10 rounded-full mr-3"
-                    /> */}
-                    <img
-                      src={user.profileUrl || userImage}
-                      alt="avatar"
-                      className="w-10 h-10 rounded-full mr-3"
                     />
+                  }
+                    
                     <div>
                       <p>{user.firstName ? `${user.firstName} ${user.lastName}` : "Unknown!"}</p>
                       <p className="text-sm text-gray-500">{user.email}</p>
