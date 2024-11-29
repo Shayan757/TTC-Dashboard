@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { getUserDetails } from "../../../../actions/auth";
 import Spinner from "../../../../components/Spinner"; // Assumed spinner component
+import { MoveRight } from 'lucide-react';
+import  JobDetails  from "../jobs/job-detail/[id]/page";
 
 const page = () => {
   const [data, setData] = useState([]);
@@ -9,6 +11,7 @@ const page = () => {
   const [error, setError] = useState(null); // To handle errors
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [selectedJob, setSelectedJob] = useState(null);
 
   const fetchUserData = useCallback(async () => {
     setLoading(true);
@@ -63,12 +66,21 @@ const page = () => {
   const handleNextPage = useCallback(() => setCurrentPage((prev) => Math.min(prev + 1, totalPages)), [totalPages]);
   const handlePageClick = useCallback((pageNum) => setCurrentPage(pageNum), []);
 
+  // Handle view details
+  const handleViewDetails = (job) => {
+    setSelectedJob(job); // Set the selected user
+  };
+
+
   return (
     <div className="container mx-auto p-4">
       {loading ? (
         <Spinner /> // Spinner component shown while data is loading
       ) : error ? (
         <div className="text-red-500">{error}</div>
+      ) : selectedJob ? (
+        < JobDetails job={selectedJob} />
+
       ) : (
         <div className="overflow-x-auto rounded-lg bg-white">
           <table className="min-w-full border border-gray-300 rounded-lg">
@@ -79,6 +91,7 @@ const page = () => {
                 <th className="px-6 py-3 text-left">Postcode</th>
                 <th className="px-6 py-3 text-left">Date Posted</th>
                 <th className="px-6 py-3 text-left">Status</th>
+                <th className="px-6 py-3 text-left"></th>
               </tr>
             </thead>
             <tbody>
@@ -95,6 +108,15 @@ const page = () => {
                       {job.isCompleted ? "Complete" : "Pending"}
                     </span>
                   </td>
+                  <td className="px-6 py-4 text-right">
+                   <MoveRight
+                   
+                   onClick={() => handleViewDetails(job)}
+                       
+                   
+                   />
+                  </td>
+
                 </tr>
               ))}
             </tbody>

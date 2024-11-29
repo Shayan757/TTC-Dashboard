@@ -2,15 +2,22 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { getUserDetails } from "../../../../actions/auth";
 import Image from "next/image";
+import { MoveRight } from 'lucide-react';
 import userImage from "../../../assets/userImage.png";
 import Spinner from "../../../../components/Spinner"; // Assumed spinner component
+// import { useRouter } from "next/navigation";
+import  UserDetails  from "../tradespersons/tradeperson-detail/[id]/page";
 
 const UsersPage = () => {
+  // const router = useRouter();
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false); // To manage loading state
   const [error, setError] = useState(null); // To handle errors
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [selectedUser, setSelectedUser] = useState(null);
+
 
   const fetchUserData = useCallback(async () => {
     setLoading(true);
@@ -62,14 +69,28 @@ const UsersPage = () => {
   const handleNextPage = useCallback(() => setCurrentPage((prev) => Math.min(prev + 1, totalPages)), [totalPages]);
   const handlePageClick = useCallback((pageNum) => setCurrentPage(pageNum), []);
 
+  // const handleViewDetails = (user) => {
+  //   router.push(`/dashboard/tradeperson-detail/${user.id}?user=${encodeURIComponent(JSON.stringify(user))}`);
+  // };
+
+     // Handle view details
+     const handleViewDetails = (user) => {
+      setSelectedUser(user); // Set the selected user
+    };
+  
   return (
     <div className="container mx-auto p-4">
       {loading ? (
         <Spinner /> // Spinner component shown while data is loading
       ) : error ? (
         <div className="text-red-500">{error}</div>
-      ) : (
-        <div className="overflow-x-auto bg-white rounded-lg">
+      ) : 
+
+      selectedUser ? (
+        <UserDetails user={selectedUser} />
+
+      ) :
+       ( <div className="overflow-x-auto bg-white rounded-lg">
           <table className="min-w-full border rounded-lg">
             <thead className="bg-gray-100">
               <tr>
@@ -79,6 +100,7 @@ const UsersPage = () => {
                 <th className="px-6 py-3 text-left">Post Code</th>
                 <th className="px-6 py-3 text-left">Trade</th>
                 <th className="px-6 py-3 text-left">Subscription</th>
+                <th className="px-6 py-3"></th>
               </tr>
             </thead>
             <tbody>
@@ -127,6 +149,14 @@ const UsersPage = () => {
                       {user.SubscriptionType.type === "Deactivate" ? 'Not Subscribed' : user.SubscriptionType.type}
                     </span>
                   </td>
+                  <td className="px-6 py-4 text-right">
+                   <MoveRight
+                   
+                   onClick={() => handleViewDetails(user)}
+                       
+                   
+                   />
+                  </td> 
                 </tr>
               ))}
             </tbody>
