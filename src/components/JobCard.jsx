@@ -32,6 +32,8 @@ const JobCard = ({ job, isCompleted }) => {
   // }
   
   // }
+
+  
   const JobDetail = ({ job }) => {
     if (!job) {
       return <p className="text-sm text-gray-500">No job details available</p>;

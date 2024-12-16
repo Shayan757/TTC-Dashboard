@@ -17,6 +17,8 @@ import {
   ChartTooltipContent,
 } from "./../../components/ui/chart"
 
+
+
 // Sample data for testing (you can replace this with your actual data)
 const chartData = [
   { id: 1, leadUsed: 0, remaningLeads: 3, trade: "Plumbing", type: "Free", createdAt: "2024-10-01T16:17:37.677Z" },

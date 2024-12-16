@@ -1,4 +1,36 @@
 
+
+
+
+
+"use client";
+
+
+import { useParams } from "next/navigation";
+
+const UserDetails = () => {
+  const { id } = useParams(); // Extract the dynamic 'id' from the URL
+
+  return (
+    <div className="container mx-auto p-4">
+      <div className="text-lg font-bold">
+        User ID: <span className="text-gray-600">{id || "Unknown"}</span>
+      </div>
+    </div>
+  );
+};
+
+export default UserDetails;
+
+
+
+
+
+
+
+
+
+
 // "use client"
 
 // import { useEffect } from "react";
@@ -291,71 +323,71 @@
 
 
 
-"use client";
+// "use client";
 
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import userImage from "../../../../../assets/userImage.png"
+// import { useRouter } from "next/navigation";
+// import Image from "next/image";
+// import userImage from "../../../../../assets/userImage.png"
 
-const UserDetails = ({ user }) => {
-  const router = useRouter();
+// const UserDetails = ({ user }) => {
+//   const router = useRouter();
 
-  if (!user) {
-    return <div className="text-red-500">User details not provided.</div>;
-  }
+//   if (!user) {
+//     return <div className="text-red-500">User details not provided.</div>;
+//   }
 
-  return (
-    <div className="container mx-auto p-4">
-      <button onClick={() => router.back()} className="text-gray-500 mb-3">
-        &larr; Back
-      </button>
-      <div className="flex items-center bg-white shadow-md rounded-lg p-6">
-        <Image
-          src={user?.profileUrl || userImage}
-          alt="User Image"
-          width={100}
-          height={100}
-          className="w-24 h-24 rounded-full object-cover mr-6"
-        />
-        <div>
-          <h2 className="text-xl px-6 font-bold">
-            {user?.firstName} {user?.lastName}
-          </h2>
-          <p className="text-gray-500">{user?.email}</p>
-        </div>
-      </div>
-      <div className="grid grid-cols-2 gap-4 bg-white p-4 rounded-lg shadow">
-        <p>
-          <strong>Phone Number:</strong> {user?.phone || "N/A"}
-        </p>
-        <p>
-          <strong>City:</strong> {user?.city || "N/A"}
-        </p>
-        <p>
-          <strong>Post Code:</strong> {user?.postcode || "N/A"}
-        </p>
-        <p>
-          <strong>No. of Jobs Posted:</strong> {user?.jobCount || "0"}
-        </p>
-      </div>
-      <div className="mt-6">
-        {user?.jobs?.length > 0 ? (
-          user.jobs.map((job, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-100 p-4 rounded-lg shadow mb-4"
-            >
-              <p className="font-bold">{job.title}</p>
-              <p className="text-sm text-gray-500">
-                Posted on {job.postedDate}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p className="text-gray-500">No jobs posted yet.</p>
-        )}
-      </div>
-      <div className="space-y-4">
+//   return (
+//     <div className="container mx-auto p-4">
+//       <button onClick={() => router.back()} className="text-gray-500 mb-3">
+//         &larr; Back
+//       </button>
+//       <div className="flex items-center bg-white shadow-md rounded-lg p-6">
+//         <Image
+//           src={user?.profileUrl || userImage}
+//           alt="User Image"
+//           width={100}
+//           height={100}
+//           className="w-24 h-24 rounded-full object-cover mr-6"
+//         />
+//         <div>
+//           <h2 className="text-xl px-6 font-bold">
+//             {user?.firstName} {user?.lastName}
+//           </h2>
+//           <p className="text-gray-500">{user?.email}</p>
+//         </div>
+//       </div>
+//       <div className="grid grid-cols-2 gap-4 bg-white p-4 rounded-lg shadow">
+//         <p>
+//           <strong>Phone Number:</strong> {user?.phone || "N/A"}
+//         </p>
+//         <p>
+//           <strong>City:</strong> {user?.city || "N/A"}
+//         </p>
+//         <p>
+//           <strong>Post Code:</strong> {user?.postcode || "N/A"}
+//         </p>
+//         <p>
+//           <strong>No. of Jobs Posted:</strong> {user?.jobCount || "0"}
+//         </p>
+//       </div>
+//       <div className="mt-6">
+//         {user?.jobs?.length > 0 ? (
+//           user.jobs.map((job, idx) => (
+//             <div
+//               key={idx}
+//               className="bg-gray-100 p-4 rounded-lg shadow mb-4"
+//             >
+//               <p className="font-bold">{job.title}</p>
+//               <p className="text-sm text-gray-500">
+//                 Posted on {job.postedDate}
+//               </p>
+//             </div>
+//           ))
+//         ) : (
+//           <p className="text-gray-500">No jobs posted yet.</p>
+//         )}
+//       </div>
+      {/* <div className="space-y-4">
      <div className="bg-white shadow-md rounded-lg p-4 flex justify-between items-center">
        <p className="font-medium">Leaking pipe in kitchen under sink</p>
        <span className="text-sm text-gray-500">Posted on 27 May 2024</span>
@@ -372,13 +404,13 @@ const UserDetails = ({ user }) => {
        <p className="font-medium">Leaking pipe in kitchen under sink</p>
        <span className="text-sm text-gray-500 ">Posted on 27 May 2024</span>
      </div>
-   </div>
- </div>
+   </div> */}
+//  </div>
 
-  );
-};
+  // );
+// };
 
-export default UserDetails;
+// export default UserDetails;
 
 
 

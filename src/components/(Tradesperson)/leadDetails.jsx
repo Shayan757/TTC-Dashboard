@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { MapPin, Clock } from 'lucide-react';
@@ -182,6 +183,7 @@ const jwt = await getUserDetails();
       headers: { 'Content-Type': 'application/json',
         'Authorization': `Bearer ${userDetail?.token}`,
        },
+       
       body: JSON.stringify({ tradepersonId, JobId }),
     });
     const viewedLead = await viewLeadResponse.json();

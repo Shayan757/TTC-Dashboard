@@ -3,7 +3,8 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { getUserDetails } from "../../../../actions/auth";
 import Spinner from "../../../../components/Spinner"; // Assumed spinner component
 import { MoveRight } from 'lucide-react';
-import  JobDetails  from "../jobs/job-detail/[id]/page";
+import Link from 'next/link'
+import  JobDetails  from "../jobs/[id]/page";
 
 const page = () => {
   const [data, setData] = useState([]);
@@ -52,7 +53,7 @@ const page = () => {
 
   useEffect(() => {
     fetchUserData();
-  }, [fetchUserData]);
+  }, [fetchUserData]); 
 
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -67,9 +68,9 @@ const page = () => {
   const handlePageClick = useCallback((pageNum) => setCurrentPage(pageNum), []);
 
   // Handle view details
-  const handleViewDetails = (job) => {
-    setSelectedJob(job); // Set the selected user
-  };
+  // const handleViewDetails = (job) => {
+  //   setSelectedJob(job); // Set the selected user
+  // };
 
 
   return (
@@ -109,12 +110,20 @@ const page = () => {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right">
-                   <MoveRight
+                   {/* <MoveRight
                    
                    onClick={() => handleViewDetails(job)}
                        
                    
-                   />
+                   /> */}
+
+
+                       <Link
+                        href={`jobs/${job.id}`}
+                      >
+                        <MoveRight />
+                      </Link> 
+
                   </td>
 
                 </tr>
@@ -163,3 +172,6 @@ const page = () => {
 };
 
 export default page;
+
+
+//app.thetradecore.com/api/get-user//

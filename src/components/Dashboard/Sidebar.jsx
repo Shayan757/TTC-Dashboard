@@ -28,26 +28,26 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
       {/* Navigation Links */}
       <nav className="flex flex-col space-y-4 px-4 text-sm mt-6 justify-center text-center">
         {path == '/dashboard' ?
-          <Link href={'/dashboard'} className="bg-yellow-400 text-black  hover:bg-yellow-800 hover:text-white p-3 rounded-lg font-semibold flex "><LayoutDashboard size={20} /><span className='px-2' style={{ margin: 'auto 0' }}>Dashboard</span></Link>
+          <Link href={'/dashboard'} className="bg-yellow-400 text-black  hover:bg-black hover:text-white p-3 rounded-lg font-semibold flex "><LayoutDashboard size={20} /><span className='px-2' style={{ margin: 'auto 0' }}>Dashboard</span></Link>
           :
-          <Link href={'/dashboard'} className="hover:bg-yellow-800 hover:text-white p-3 rounded-lg font-semibold flex "><LayoutDashboard size={20} /><span style={{ margin: 'auto 0' }} className='px-2'>Dashboard</span></Link>
+          <Link href={'/dashboard'} className="hover:bg-black hover:text-white p-3 rounded-lg font-semibold flex "><LayoutDashboard size={20} /><span style={{ margin: 'auto 0' }} className='px-2'>Dashboard</span></Link>
         }
         {path == '/dashboard/tradespersons' ?
-          <Link href={'/dashboard/tradespersons'} className="bg-yellow-400 text-black  hover:bg-yellow-800 hover:text-white p-3 rounded-lg font-semibold flex "><Drill size={20} /><span className='px-2' style={{ margin: 'auto 0' }}>Tradespersons</span></Link>
+          <Link href={'/dashboard/tradespersons'} className="bg-yellow-400 text-black  hover:bg-black hover:text-white p-3 rounded-lg font-semibold flex "><Drill size={20} /><span className='px-2' style={{ margin: 'auto 0' }}>Tradespersons</span></Link>
           :
-          <Link href={'/dashboard/tradespersons'} className="hover:bg-yellow-800 hover:text-white p-3 rounded-lg font-semibold flex "><Drill size={20} /><span style={{ margin: 'auto 0' }} className='px-2'>Tradespersons</span></Link>
+          <Link href={'/dashboard/tradespersons'} className="hover:bg-black hover:text-white p-3 rounded-lg font-semibold flex "><Drill size={20} /><span style={{ margin: 'auto 0' }} className='px-2'>Tradespersons</span></Link>
         }
 
         {path == '/dashboard/jobs' ?
-          <Link href={'/dashboard/jobs'} className="bg-yellow-400 text-black  hover:bg-yellow-800 hover:text-white p-3 rounded-lg font-semibold flex "><NotebookPen size={20} /><span className='px-2' style={{ margin: 'auto 0' }}>Jobs</span></Link>
+          <Link href={'/dashboard/jobs'} className="bg-yellow-400 text-black  hover:bg-black hover:text-white p-3 rounded-lg font-semibold flex "><NotebookPen size={20} /><span className='px-2' style={{ margin: 'auto 0' }}>Jobs</span></Link>
           :
-          <Link href={'/dashboard/jobs'} className="hover:bg-yellow-800 hover:text-white p-3 rounded-lg font-semibold flex "><NotebookPen size={20} /><span style={{ margin: 'auto 0' }} className='px-2'>Jobs</span></Link>
+          <Link href={'/dashboard/jobs'} className="hover:bg-black hover:text-white p-3 rounded-lg font-semibold flex "><NotebookPen size={20} /><span style={{ margin: 'auto 0' }} className='px-2'>Jobs</span></Link>
         }
 
         {path == '/dashboard/clients' ?
-          <Link href={'/dashboard/clients'} className="bg-yellow-400 text-black  hover:bg-yellow-800 hover:text-white p-3 rounded-lg font-semibold flex "><UserRound size={20} /><span className='px-2' style={{ margin: 'auto 0' }}>Clients</span></Link>
+          <Link href={'/dashboard/clients'} className="bg-yellow-400 text-black  hover:bg-black hover:text-white p-3 rounded-lg font-semibold flex "><UserRound size={20} /><span className='px-2' style={{ margin: 'auto 0' }}>Clients</span></Link>
           :
-          <Link href={'/dashboard/clients'} className="hover:bg-yellow-800 hover:text-white p-3 rounded-lg font-semibold flex "><UserRound size={20} /><span style={{ margin: 'auto 0' }} className='px-2'>Clients</span></Link>
+          <Link href={'/dashboard/clients'} className="hover:bg-black hover:text-white p-3 rounded-lg font-semibold flex "><UserRound size={20} /><span style={{ margin: 'auto 0' }} className='px-2'>Clients</span></Link>
         }
 
       </nav>

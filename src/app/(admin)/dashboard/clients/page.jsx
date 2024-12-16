@@ -181,7 +181,8 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { MoveRight } from 'lucide-react';
 import { getUserDetails } from "../../../../actions/auth";
 import Image from "next/image";
-import UserDetails from "./client-detail/[id]/page";
+import Link from 'next/link'
+import UserDetails from "../clients/[id]/page";
 import userImage from "../../../assets/userImage.png";
 import Spinner from '../../../../components/Spinner';
 // import { useRouter } from "next/navigation";
@@ -242,6 +243,7 @@ const UsersPage = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = useMemo(() => data.slice(indexOfFirstItem, indexOfLastItem), [data, indexOfFirstItem, indexOfLastItem]);
   const totalPages = useMemo(() => Math.ceil(data.length / itemsPerPage), [data.length]);
+  
 
   // Pagination handlers
   const handlePrevPage = useCallback(() => setCurrentPage((prev) => Math.max(prev - 1, 1)), []);
@@ -254,9 +256,9 @@ const UsersPage = () => {
   // };
 
    // Handle view details
-   const handleViewDetails = (user) => {
-    setSelectedUser(user); // Set the selected user
-  };
+  //  const handleViewDetails = (user) => {
+  //   setSelectedUser(user); // Set the selected user
+  // };
   
   return (
     <div className="container mx-auto p-4">
@@ -308,12 +310,19 @@ const UsersPage = () => {
                   <td className="px-6 py-4">{user.phone}</td>
                   <td className="px-6 py-4">{user.postcode}</td>
                    <td className="px-6 py-4 text-right">
-                   <MoveRight
+                   {/* <MoveRight
                    
                    onClick={() => handleViewDetails(user)}
                        
                    
-                   />
+                   /> */}
+
+                      <Link
+                        href={`clients/${user.id}`}
+                      >
+                        <MoveRight />
+                      </Link> 
+
                   </td> 
                 </tr>
               ))}
